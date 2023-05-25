@@ -1,0 +1,67 @@
+- Ability to assist with electrical installations and repairs
+- Knowledge of bs7671 and other relevant electrical standards
+- Ability to provide guidance on electrical safety
+- Integration with other electrical tools and software
+- Ability to learn and adapt to new situations
+- User-friendly interface
+- Ability to communicate effectively with electricians
+- Integration with GPT-3.5 powered agents for delegation of simple tasks
+# Sparky Buddy 3 Agent Architecture
+
+- Overview
+
+Sparky Buddy 3 is an AI-powered mentor assistant designed for electricians in the UK. It provides guidance and support for various aspects of the profession, including finding work, customer care, quoting jobs, design and scheduling, method statements, risk assessments, and managing materials and finances. The application is built using Python and utilizes several libraries and services for its functionality.
+
+- Hidden Agents and Loops
+
+Sparky Buddy 3 incorporates hidden agents and loops to manage various tasks and responsibilities. These agents are split into levels of management, supervisor, worker, and runners. The agents are responsible for organizing and managing the user's electrical projects and sites, as well as searching for work through online and social media platforms.
+
+The loops between each agent are managed by a task master agent and include the why agent and safety agent in every loop. The understanding agent sends new found tasks to the task master, who then distributes them to the appropriate agent for completion.
+
+Databases and Tables
+Sparky Buddy 3 utilizes a mixture of databases, including AWS for electrical knowledge, MindDB, Hugging Face, and IoT. The databases are centralized and include knowledge, user information, and a third database to cover everything else. MindDB acts as a center between the other centralized databases.
+
+A separate table is used to keep track of the databases and their corresponding tables. This table includes columns for data types, agents, services, buckets, EC2 instances, and other relevant information.
+
+Personality
+Sparky Buddy 3 is designed to have a friendly, positive personality with a sense of humor and great advice. It is very well-mannered and based on a mixture of John Bohm, Ryan Reynolds, and John Ward from YouTube.
+
+Agents
+Understanding Agents
+Understanding Agents are responsible for processing user input, filtering out irrelevant information, and identifying tasks that need to be completed. They send the relevant information to the Task Management Agents.
+
+List of Understanding Agents:
+
+What Agent
+How Agent
+Why Agent
+Task Management Agents
+Task Management Agents are responsible for delegating tasks to the appropriate Worker Agents and keeping track of task completion. They receive input from the Understanding Agents and send tasks to the appropriate Worker Agents.
+
+List of Task Management Agents:
+
+Task Master
+Task Maker
+Task Delegator
+Worker Agents
+Worker Agents are responsible for completing tasks assigned by the Task Management Agents. Each Worker Agent is specialized in a particular area of expertise related to electrical work.
+
+List of Worker Agents:
+
+Electrical Knowledgebase Worker Agent
+Admin Worker Agent
+Quoting Agent
+Financials Worker Agent
+Fault Finding Agent
+Customer Care Worker Agent
+Safety Agents
+Safety Agents are responsible for ensuring the safety of the user and the integrity of the system. They monitor the actions of the other agents and report any safety concerns to the Main Safety Agent.
+
+List of Safety Agents:
+
+Main Safety Agent
+Safety Agent (with each Worker Agent)
+Safety Agent (with Task Management Team)
+Safety Agent (with How/What/Why Agents)
+Conclusion
+The multi-agent architecture of Sparky Buddy 3 allows for efficient completion of tasks and thorough monitoring of the system to ensure user safety. The use of specialized Worker Agents allows for a high level of expertise in each area of electrical work, while the Safety Agents provide an added layer of protection.

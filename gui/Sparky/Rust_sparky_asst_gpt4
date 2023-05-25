@@ -1,0 +1,93 @@
+// script name: sparky_assistant_gpt4.rs 
+// location: location
+// Function: Sparky AI assistant for electricians using GPT-4 API
+// Accessible from Libraries: yes
+
+use std::fs::File;
+use std::io::BufReader;
+use std::io::prelude::*;
+use serde::{Deserialize};
+use std::env;
+use std::error::Error;
+use log::{debug, error};
+use std::convert::TryInto;
+
+#[derive(Debug, Deserialize)]
+struct SparkyPersonality {
+    core_traits: Vec<String>,
+    behavior: Vec<String>,
+    mannerisms: Vec<String>,
+}
+
+struct SparkyAssistantGPT4 {
+    api_key: String,
+    organization_id: String,
+    temperature: f32,
+    personality_description: String,
+    sparky_personality: SparkyPersonality,
+}
+
+struct Quoting {}
+struct InventoryControl {}
+struct Payroll {}
+
+impl SparkyAssistantGPT4 {
+    fn get_personality_description(&self) -> String {
+        format!("Core traits: {:?}\nBehavior: {:?}\nMannerisms: {:?}", self.sparky_personality.core_traits, self.sparky_personality.behavior, self.sparky_personality.mannerisms)
+    }
+
+    fn personality(&self) -> SparkyPersonality {
+        SparkyPersonality {
+            core_traits: self.sparky_personality.core_traits.clone(),
+            behavior: self.sparky_personality.behavior.clone(),
+            mannerisms: self.sparky_personality.mannerisms.clone(),
+        }
+    }
+
+    fn generate_response(&self, user_input: &str) -> Result<String, Box<dyn Error>> {
+        let prompt_message = format!("You are a helpful AI assistant for electricians in the UK named Sparky. You are trained specifically in BS7671, best practice guides, guidance note books, and other resources. Your goal is to help electricians with any questions or problems they have. Your personality is as follows:\n{}\nUser: {}\nSparky:", self.personality_description, user_input);
+        
+        let client = reqwest::blocking::Client::new();
+        
+        let res = client.post("https://api.openai.com/v1/completions")
+            .header("Content-Type", "application/json")
+            .header("Authorization", format!("Bearer {}", self.api_key))
+            .json(&serde_json::json!({
+            "model": "text-davinci-002",
+            "prompt": prompt_message,
+            "temperature": self.temperature, 
+            "max_tokens": 100,
+            "stop": ["\n"]
+            }))
+            .send()?;
+        
+        let text = res.text()?;
+        let response: serde_json::Value = serde_json::from_str(&text)?;
+        let result = response["choices"][0]["text"].as_str().unwrap();
+        Ok(result.to_string())
+    }
+}
+
+fn main() -> Result<(), Box<dyn Error>> {
+    let api_key = env::var("OPENAI_API_KEY")?;
+    let organization_id = env::var("OPENAI_ORGANIZATION_ID")?;
+    let temperature_str = env::var("TEMPERATURE").unwrap_or_else(|_| String::from("0"));
+    let temperature: f32 = temperature_str.parse::<f32>().unwrap_or(0.0);
+
+    let current_dir = std::env::current_dir()?;
+    let personality_file_path = current_dir.join("sparky_personality.json");
+
+    let personality_file = File::open(personality_file_path)?;
+    let reader = BufReader::new(personality_file);
+    let sparky_personality: SparkyPersonality = serde_json::from_reader(reader)?;
+
+    let personality_description = SparkyAssistantGPT4{sparky_personality: sparky_personality.clone(), temperature, api_key, organization_id}.get_personality_description();
+
+    let user_input = "";
+    let response = SparkyAssistantGPT4{sparky_personality, temperature, api_key, organization_id}.generate_response(&user_input)?;
+
+    println!("{}", response);
+    Ok(())
+}
+
+

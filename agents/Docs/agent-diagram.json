@@ -1,0 +1,39 @@
+graph TB
+  UA["Understanding Agents (BERT)"]
+  UA --> WA["A1: What Agent"]
+  UA --> HA["A2: How Agent"]
+  UA --> YAA["A3: Why Agent"]
+  UA -- "Identify Tasks" --> TMA["Task Management Agents"]
+  TMA --> TM["A4: Task Master"]
+  TMA --> TMK["A5: Task Maker"]
+  TMA --> TD["A6: Task Delegator"]
+  TMA -- "Delegate Tasks" --> WKA["Worker Agents (BERT/PALM)"]
+  WKA --> EKWA["A7: Electrical Knowledgebase Worker Agent"]
+  WKA --> AWA["A8: Admin Worker Agent"]
+  WKA --> QA["A9: Quoting Agent"]
+  WKA --> FWA["A10: Financials Worker Agent"]
+  WKA --> FFA["A11: Fault Finding Agent"]
+  WKA --> CCWA["A12: Customer Care Worker Agent"]
+  SA["Safety Agents (BERT)"]
+  SA --> MSA["A13: Main Safety Agent"]
+  SA --> SAWA["A14: Safety Agent with each Worker Agent"]
+  SA --> SATMT["A15: Safety Agent with Task Management Team"]
+  SA --> SAHWWA["A16: Safety Agent with How/What/Why Agents"]
+  linkStyle 0 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 1 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 2 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 3 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 4 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 5 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 6 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 7 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 8 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 9 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 10 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 11 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 12 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 13 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 14 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 15 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 16 stroke:#2ecd71,stroke-width:2px;
+  linkStyle 17 stroke:#2ecd71,stroke-width:2px;

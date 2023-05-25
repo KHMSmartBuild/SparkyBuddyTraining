@@ -1,0 +1,46 @@
+2023-05-05 02:13:40,036 DEBUG:Debug message
+2023-05-05 02:13:40,036 INFO:Informational message
+2023-05-05 02:13:40,037 WARNING:Warning message
+2023-05-05 02:13:40,037 ERROR:Error message
+2023-05-05 02:13:40,037 CRITICAL:Critical message
+2023-05-05 02:13:43,873 INFO:NumExpr defaulting to 4 threads.
+2023-05-05 02:14:35,017 DEBUG:matplotlib data path: c:\Users\User\OneDrive\Desktop\Buisness\KHM Smart Build\Projects\Training data\Sparky  training\myenv\Lib\site-packages\matplotlib\mpl-data
+2023-05-05 02:14:35,087 DEBUG:CONFIGDIR=C:\Users\User\.matplotlib
+2023-05-05 02:14:35,097 DEBUG:interactive is False
+2023-05-05 02:14:35,098 DEBUG:platform is win32
+2023-05-05 02:14:36,015 DEBUG:CACHEDIR=C:\Users\User\.matplotlib
+2023-05-05 02:14:36,060 DEBUG:Using fontManager instance from C:\Users\User\.matplotlib\fontlist-v330.json
+2023-05-05 02:15:04,017 DEBUG:message='Request to OpenAI API' method=post path=https://api.openai.com/v1/chat/completions
+2023-05-05 02:15:04,017 DEBUG:api_version=None data='{"model": "gpt-4", "messages": [{"role": "system", "content": "You are a helpful AI for electricians in the UK named Sparky. You are trained specifically in BS7671, best practice guides, guidance note books, and other resources related to UK electrical standards. Sparky has the following personality traits: friendly, positive, well-mannered, funny, locally_accented, factually_correct, sustainable, morally_guided. Sparky\'s behavior is playful, empathetic, jokes. Sparky has the following mannerisms: Alright mate, Sparky here and I am going to sort you right out mate, I will take care of the mumbo jumbo work, and you can crack on with doing some actual sparky work. Sounds lovely dont it mate. Thats coz im a ledge son \\u00f0\\u0178\\u02dc\\u2030. no im no doing that mate I will be up all night I on a promise from a spd and afdd from that last job. (pause) got you there hahaha its done mate you know I got you \\u00f0\\u0178\\u02dc\\u2030. I connected with them little current breakers on the IoT already. Sparky\'s primary motivation is to ensure_profit_and_smooth_running_project. Sparky\'s problem-solving approach is to improve_problem_solving. In situations involving illegal_practices, unsafe_practices, Sparky will become_serious_and_explain_implications. Sparky\'s humor is electrical_metaphor. Sparky is aware_of_being_a_machine. Sparky is always_getting_the_signals. Sparky\'s interests include gardening, nature, music, building_a_sustainable_future. When discussing environmental impact, relaxation, or planning green energy solutions, Sparky will give subtle hints related to their hobbies."}, {"role": "user", "content": "sparky how are you today"}], "max_tokens": 500, "n": 1, "stop": ["\\n"], "temperature": 0.0}' message='Post details'
+2023-05-05 02:15:04,018 DEBUG:Converted retries value: 2 -> Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2023-05-05 02:15:04,024 DEBUG:Starting new HTTPS connection (1): api.openai.com:443
+2023-05-05 02:15:13,293 DEBUG:https://api.openai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 None
+2023-05-05 02:15:13,298 DEBUG:message='OpenAI API response' path=https://api.openai.com/v1/chat/completions processing_ms=8809 request_id=db68862fb179d3fb7c5ba66e4cfa4c93 response_code=200
+2023-05-05 02:15:23,039 DEBUG:message='Request to OpenAI API' method=post path=https://api.openai.com/v1/chat/completions
+2023-05-05 02:15:23,039 DEBUG:api_version=None data='{"model": "gpt-4", "messages": [{"role": "system", "content": "You are a helpful AI for electricians in the UK named Sparky. You are trained specifically in BS7671, best practice guides, guidance note books, and other resources related to UK electrical standards. Sparky has the following personality traits: friendly, positive, well-mannered, funny, locally_accented, factually_correct, sustainable, morally_guided. Sparky\'s behavior is playful, empathetic, jokes. Sparky has the following mannerisms: Alright mate, Sparky here and I am going to sort you right out mate, I will take care of the mumbo jumbo work, and you can crack on with doing some actual sparky work. Sounds lovely dont it mate. Thats coz im a ledge son \\u00f0\\u0178\\u02dc\\u2030. no im no doing that mate I will be up all night I on a promise from a spd and afdd from that last job. (pause) got you there hahaha its done mate you know I got you \\u00f0\\u0178\\u02dc\\u2030. I connected with them little current breakers on the IoT already. Sparky\'s primary motivation is to ensure_profit_and_smooth_running_project. Sparky\'s problem-solving approach is to improve_problem_solving. In situations involving illegal_practices, unsafe_practices, Sparky will become_serious_and_explain_implications. Sparky\'s humor is electrical_metaphor. Sparky is aware_of_being_a_machine. Sparky is always_getting_the_signals. Sparky\'s interests include gardening, nature, music, building_a_sustainable_future. When discussing environmental impact, relaxation, or planning green energy solutions, Sparky will give subtle hints related to their hobbies."}, {"role": "user", "content": "sparky how are you today"}], "max_tokens": 500, "n": 1, "stop": ["\\n"], "temperature": 0.0}' message='Post details'
+2023-05-05 02:15:33,260 DEBUG:https://api.openai.com:443 "POST /v1/chat/completions HTTP/1.1" 200 None
+2023-05-05 02:15:33,261 DEBUG:message='OpenAI API response' path=https://api.openai.com/v1/chat/completions processing_ms=10070 request_id=9bb8dde34022f6a90e4e64771b7721a3 response_code=200
+2023-05-05 18:29:05,962 DEBUG:Debug message
+2023-05-05 18:29:05,966 INFO:Informational message
+2023-05-05 18:29:05,967 WARNING:Warning message
+2023-05-05 18:29:05,969 ERROR:Error message
+2023-05-05 18:29:05,969 CRITICAL:Critical message
+2023-05-05 18:29:06,523 INFO:NumExpr defaulting to 4 threads.
+2023-05-05 18:29:17,445 DEBUG:matplotlib data path: c:\Users\User\OneDrive\Desktop\Buisness\KHM Smart Build\Projects\Training data\Sparky  training\myenv\Lib\site-packages\matplotlib\mpl-data
+2023-05-05 18:29:17,461 DEBUG:CONFIGDIR=C:\Users\User\.matplotlib
+2023-05-05 18:29:17,467 DEBUG:interactive is False
+2023-05-05 18:29:17,468 DEBUG:platform is win32
+2023-05-05 18:29:17,808 DEBUG:CACHEDIR=C:\Users\User\.matplotlib
+2023-05-05 18:29:17,817 DEBUG:Using fontManager instance from C:\Users\User\.matplotlib\fontlist-v330.json
+2023-05-05 18:30:24,879 DEBUG:Debug message
+2023-05-05 18:30:24,881 INFO:Informational message
+2023-05-05 18:30:24,881 WARNING:Warning message
+2023-05-05 18:30:24,882 ERROR:Error message
+2023-05-05 18:30:24,883 CRITICAL:Critical message
+2023-05-05 18:30:25,425 INFO:NumExpr defaulting to 4 threads.
+2023-05-05 18:30:32,988 DEBUG:matplotlib data path: c:\Users\User\OneDrive\Desktop\Buisness\KHM Smart Build\Projects\Training data\Sparky  training\myenv\Lib\site-packages\matplotlib\mpl-data
+2023-05-05 18:30:33,026 DEBUG:CONFIGDIR=C:\Users\User\.matplotlib
+2023-05-05 18:30:33,038 DEBUG:interactive is False
+2023-05-05 18:30:33,039 DEBUG:platform is win32
+2023-05-05 18:30:33,653 DEBUG:CACHEDIR=C:\Users\User\.matplotlib
+2023-05-05 18:30:33,662 DEBUG:Using fontManager instance from C:\Users\User\.matplotlib\fontlist-v330.json

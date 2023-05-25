@@ -1,0 +1,37 @@
+{
+    "safe_isolation": {
+      "purpose": "To ensure the supply is cut and remains cut for safety reasons.",
+      "sequence": ["Check", "Isolate", "Prove", "Test", "Prove"]
+    },
+    "testing": {
+      "energized_circuits": "Understanding the requirements for testing energized circuits.",
+      "sequence": "Inspection should precede testing, as stated in Regulation 642.1 of BS 7671."
+    },
+    "regulations": {
+      "health_safety_at_work_act": "1974",
+      "electricity_at_work_regulations": "1989",
+      "hsg_85_electricity_at_work_safe_working_practice": "Concentrates on safe working practices and procedures.",
+      "bs_7671": "Provides specific details in relation to electrical systems.",
+      "gs_38": "Published by HSE, provides information on the safe use of measuring instruments."
+    },
+    "inspection": {
+      "initial_verification": "Inspect and test the installation before it is placed in service.",
+      "competent_person": "A skilled person must have the knowledge and experience relevant to the nature of the installation being inspected and tested."
+    },
+    "duty_holder": {
+      "definition": "A person responsible for ensuring that no danger occurs and that persons or livestock are not harmed."
+    },
+    "safety": {
+      "safe_working_practices": "Paramount for all personnel involved in electrical installations.",
+      "hazard_identification": "Unsafe or hazardous situations should be reported immediately."
+    },
+    "assessment": {
+      "online_exam": {
+        "format": "One online multiple-choice exam with 50 questions and a 100-minute time limit, open book."
+      },
+      "practical_assessment": {
+        "format": "Two parts: initial inspection and test on a simulated installation lasting 150 minutes, and completing an electrical installation certificate on a simulated installation."
+      }
+    }
+  }
+  

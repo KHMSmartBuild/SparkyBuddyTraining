@@ -1,0 +1,9 @@
+{
+    "python.analysis.extraPaths": [
+        "./utils",
+        "./gui",
+        "./gui/openai",
+        "./gui"
+    ],
+    "openai-codex-edit.organization": "org-lj5FmWin7tmPpA4rZYRHLXkt"
+}

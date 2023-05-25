@@ -1,0 +1,6 @@
+function_descriptions = {
+    "from .function_explanations import generate_function_explanations": "Generate function explanations.",
+    "from .function_explanations import store_function_explanations": "Store function explanations.",
+    "from .main_train import main": "Main training function.",
+    
+}

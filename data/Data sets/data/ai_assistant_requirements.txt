@@ -1,0 +1,1 @@
+The requirements for building an AI assistant using Python include various packages such as speech recognition, wikipedia, and web browser. The AI assistant can perform tasks such as opening applications, predicting time and weather, and answering questions. The article provides a step-by-step guide on how to build an AI assistant using Python.

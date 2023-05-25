@@ -1,0 +1,26 @@
+2023-05-08 02:38:17,077 WARNING:Invalid OpenAI API key or organization ID
+2023-05-08 02:40:19,539 WARNING:Invalid OpenAI API key or organization ID
+2023-05-08 02:43:56,622 WARNING:Invalid OpenAI API key or organization ID
+2023-05-08 02:46:52,359 WARNING:Invalid OpenAI API key or organization ID
+2023-05-08 02:56:42,190 WARNING:Invalid OpenAI API key or organization ID
+2023-05-08 03:28:45,641 DEBUG:message='Request to OpenAI API' method=post path=https://api.openai.com/v1/engines/gpt-4/chat/completions
+2023-05-08 03:28:45,643 DEBUG:api_version=None data='{"prompt": "Generate 5 example sentences about products:", "max_tokens": 100, "n": 1, "stop": null, "temperature": 0.8}' message='Post details'
+2023-05-08 03:28:45,644 DEBUG:Converted retries value: 2 -> Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2023-05-08 03:28:45,688 DEBUG:Starting new HTTPS connection (1): api.openai.com:443
+2023-05-08 03:28:46,109 DEBUG:https://api.openai.com:443 "POST /v1/engines/gpt-4/chat/completions HTTP/1.1" 404 None
+2023-05-08 03:28:46,117 DEBUG:message='OpenAI API response' path=https://api.openai.com/v1/engines/gpt-4/chat/completions processing_ms=None request_id=416d395ddc01728aa73682273b687040 response_code=404
+2023-05-08 03:28:46,118 INFO:error_code=None error_message='Invalid URL (POST /v1/engines/gpt-4/chat/completions)' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-05-08 03:30:44,378 DEBUG:message='Request to OpenAI API' method=post path=https://api.openai.com/v1/engines/gpt-3.5-turbo/completions
+2023-05-08 03:30:44,380 DEBUG:api_version=None data='{"prompt": "Generate 5 example sentences about products:", "max_tokens": 100, "n": 1, "stop": null, "temperature": 0.8}' message='Post details'
+2023-05-08 03:30:44,381 DEBUG:Converted retries value: 2 -> Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2023-05-08 03:30:44,387 DEBUG:Starting new HTTPS connection (1): api.openai.com:443
+2023-05-08 03:30:44,703 DEBUG:https://api.openai.com:443 "POST /v1/engines/gpt-3.5-turbo/completions HTTP/1.1" 404 None
+2023-05-08 03:30:44,709 DEBUG:message='OpenAI API response' path=https://api.openai.com/v1/engines/gpt-3.5-turbo/completions processing_ms=2 request_id=aa343c0d55ed700370f0757bfe7e9aac response_code=404
+2023-05-08 03:30:44,709 INFO:error_code=None error_message='This is a chat model and not supported in the v1/completions endpoint. Did you mean to use v1/chat/completions?' error_param=model error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-05-08 03:31:44,948 DEBUG:message='Request to OpenAI API' method=post path=https://api.openai.com/v1/engines/gpt-3.5-turbo/chat/completions
+2023-05-08 03:31:44,952 DEBUG:api_version=None data='{"prompt": "Generate 5 example sentences about products:", "max_tokens": 100, "n": 1, "stop": null, "temperature": 0.8}' message='Post details'
+2023-05-08 03:31:44,954 DEBUG:Converted retries value: 2 -> Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2023-05-08 03:31:44,971 DEBUG:Starting new HTTPS connection (1): api.openai.com:443
+2023-05-08 03:31:45,282 DEBUG:https://api.openai.com:443 "POST /v1/engines/gpt-3.5-turbo/chat/completions HTTP/1.1" 404 None
+2023-05-08 03:31:45,286 DEBUG:message='OpenAI API response' path=https://api.openai.com/v1/engines/gpt-3.5-turbo/chat/completions processing_ms=None request_id=07c3469d14cf323a2f6bf3adcb341f48 response_code=404
+2023-05-08 03:31:45,288 INFO:error_code=None error_message='Invalid URL (POST /v1/engines/gpt-3.5-turbo/chat/completions)' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
