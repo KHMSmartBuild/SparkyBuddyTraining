@@ -1,9 +1,9 @@
 """Text processing functions"""
 from typing import Generator, Optional, Dict
 from selenium.webdriver.remote.webdriver import WebDriver
-from autogpt.memory import get_memory
-from autogpt.config import Config
-from autogpt.llm_utils import create_chat_completion
+from agents.memory import get_memory
+from agents.config import Config
+from agents.llm_utils import create_chat_completion
 
 CFG = Config()
 MEMORY = get_memory(CFG)

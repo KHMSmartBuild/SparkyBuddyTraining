@@ -1,4 +1,3 @@
-from gui import Sparky_gui 
 from Sparky_gui import SparkyGUI
 
 

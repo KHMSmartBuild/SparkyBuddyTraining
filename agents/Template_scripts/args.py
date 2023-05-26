@@ -2,10 +2,10 @@
 import argparse
 
 from colorama import Fore
-from autogpt import utils
-from autogpt.config import Config
-from autogpt.logs import logger
-from autogpt.memory import get_supported_memory_backends
+from agents import utils
+from agents.config import Config
+from agents.logs import logger
+from agents.memory import get_supported_memory_backends
 
 CFG = Config()
 
