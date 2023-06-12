@@ -1,9 +1,9 @@
-import os
-import sys
-import re
-import importlib
-import inspect
-import sqlite3
+import os  # Importing the os module which provides a way of interacting with the operating system.
+import sys  # Importing the sys module which provides access to some variables used or maintained by the interpreter.
+import re  # Importing the re module which provides support for regular expressions.
+import importlib  # Importing the importlib module which provides an implementation of the import statement.
+import inspect  # Importing the inspect module which provides several useful functions to help get information about live objects.
+import sqlite3  # Importing the sqlite3 module which provides a lightweight disk-based database.
 
 def generate_function_explanations(module):
     """
@@ -16,23 +16,22 @@ def generate_function_explanations(module):
         A list of tuples, where each tuple represents a function and its explanation.
         Each tuple has the format (name, signature, description).
     """
-    explanations = []
+    explanations = []  # Creating an empty list to store the function explanations.
 
-    for name, obj in inspect.getmembers(module):
-        if inspect.isfunction(obj):
-            # Get the function's signature
-            signature = inspect.signature(obj)
-            explanation = f"Function: {name}{signature}"
-            docstring = inspect.getdoc(obj)
+    for name, obj in inspect.getmembers(module):  # Iterating through the members of the given module.
+        if inspect.isfunction(obj):  # Checking if the member is a function.
+            signature = inspect.signature(obj)  # Getting the signature of the function.
+            explanation = f"Function: {name}{signature}"  # Creating the basic explanation string.
+            docstring = inspect.getdoc(obj)  # Getting the docstring of the function.
 
             if docstring:
-                explanation += f"\nDescription: {docstring.strip()}\n"
+                explanation += f"\nDescription: {docstring.strip()}\n"  # Adding the description to the explanation.
             else:
-                explanation += "\nDescription: No description provided.\n"
+                explanation += "\nDescription: No description provided.\n"  # Adding a default description if no description is provided.
 
-            explanations.append((name, str(signature), docstring))
+            explanations.append((name, str(signature), docstring))  # Adding the explanation to the list of explanations.
 
-    return explanations
+    return explanations  # Returning the list of explanations.
 
 def store_function_explanations(conn, explanations):
     """
@@ -43,9 +42,7 @@ def store_function_explanations(conn, explanations):
         explanations: A list of tuples representing function explanations.
         Each tuple has the format (name, signature, description).
     """
-    cursor = conn.cursor()
-
-    # Create the functions table if it doesn't exist
+    cursor = conn.cursor()  # Creating a cursor object using the given SQLite connection.
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS functions (
         id INTEGER PRIMARY KEY,
@@ -53,43 +50,57 @@ def store_function_explanations(conn, explanations):
         signature TEXT NOT NULL,
         description TEXT
     )
-    """)
-
-    # Add an index for the 'name' column to improve search performance
+    """)  # Creating a table named "functions" if it does not exist, with columns for the function name, signature, and description.
     cursor.execute("""
     CREATE INDEX IF NOT EXISTS idx_function_name ON functions (name)
-    """)
-
-    # Insert the function explanations into the table
+    """)  # Creating an index on the "name" column of the "functions" table to improve search performance.
     cursor.executemany("""
     INSERT INTO functions (name, signature, description)
     VALUES (?, ?, ?)
-    """, explanations)
+    """, explanations)  # Inserting the function explanations into the "functions" table.
 
-    # Commit the changes
-    conn.commit()
+    conn.commit()  # Committing the changes to the SQLite database.
 
 if __name__ == "__main__":
-    # Get the path to the libraries folder and the init file
-    libraries_path = os.path.join("libraries")
-    init_file_path = os.path.join(libraries_path, "__init__.py")
+    libraries_path = os.path.join("libraries")  # Setting the path to the libraries folder.
+    init_file_path = os.path.join(libraries_path, "__init__.py")  # Setting the path to the init file in the libraries folder.
 
-    # Extract module name from the init file path
-    module_name = re.sub(r"[/\\]", ".", init_file_path)[:-3]
+    module_name = re.sub(r"[/\\]", ".", init_file_path)[:-3]  # Extracting the module name from the init file path.
 
-    # Add the libraries folder to the Python path
-    sys.path.append(os.path.abspath(libraries_path))
+    sys.path.append(os.path.abspath(libraries_path))  # Adding the libraries folder to the Python path.
 
-    # Import the module
-    module = importlib.import_module("__init__")
+    module = importlib.import_module("__init__")  # Importing the module specified in the init file.
 
-    # Generate explanations for the functions in the module
-    explanations = generate_function_explanations(module)
-
-    # Store the explanations in an SQLite database
+    explanations = generate_function_explanations(module)  # Generating explanations for the functions in the imported module.
     db_folder = "databases"
     os.makedirs(db_folder, exist_ok=True)
     db_path = os.path.join(db_folder, "function_explanations.db")
     with sqlite3.connect(db_path) as conn:
         store_function_explanations(conn, explanations)
         print(f"Function explanations stored in {db_path}")
+
+# Function Explanations
+# Location: libraries/__init__.py
+# Local Variables: NONE
+# Author: KHM Smart Build
+# Date: 2022-04-25
+
+"""
+The script defines two main functions:
+
+generate_function_explanations(module): This function takes a Python module as an argument
+and generates explanations for each function within the module. It uses the inspect module 
+to retrieve the signature and docstring for each function. The function returns a list of tuples, 
+where each tuple contains the function name, its signature, and its docstring.
+
+store_function_explanations(conn, explanations): This function takes an SQLite database connection
+and a list of function explanations (as generated by the generate_function_explanations function) as arguments.
+It creates a table named "functions" in the SQLite database (if it doesn't already exist) and inserts the
+function explanations into this table. It also creates an index on the "name" column of the "functions" 
+table to improve search performance.
+
+In the main execution block of the script, it sets the path to a "libraries" folder and the "init.py" 
+file within this folder. It then extracts the module name from the "init.py" file path and adds the "libraries" 
+folder to the Python path. The script then imports the module specified in the "init.py" file, generates explanations 
+for the functions in this module, and stores these explanations in an SQLite database.
+"""

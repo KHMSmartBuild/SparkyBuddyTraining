@@ -1,4 +1,4 @@
-from Sparky_gui import SparkyGUI
+from gui.Sparky_gui import SparkyGUI
 
 
 def main():

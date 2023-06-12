@@ -1,0 +1,11 @@
+training_data = {
+    "title": "Comprehensive Training Data Set on BS7671",
+    "data": "placeholder data"
+}
+
+message = """The BS7671 standard covers a wide range of topics related to 
+electrical installations, including scope, earthing systems, and energy efficiency performance levels. It also provides guidance on the design, installation, and maintenance of electrical systems in buildings. Electricians must be familiar with the requirements of the BS7671 standard to ensure that electrical installations are safe and comply with regulations."""
+
+speaker = "Sparky"
+
+print(f"Speaker: {speaker}\nMessage: {message}\nTraining Data: {training_data}")
