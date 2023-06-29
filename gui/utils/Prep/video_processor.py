@@ -7,7 +7,7 @@ sys.path.append(parent_dir)
 import cv2
 import numpy as np
 import subprocess
-from PyQt5.QtWidgets import QDialog, QVBoxLayout, QLabel, QPushButton, QLineEdit
+from PyQt5.QtWidgets import QApplication,QDialog, QVBoxLayout, QLabel, QPushButton, QLineEdit
 from utils.Prep.you_tube.transcribe_video import transcribe_video
 import youtube_dl
 
@@ -100,9 +100,19 @@ class VideoProcessorGUI(QDialog):
     def process_video(self):
         video_url = self.path_input.text()
         video_path = self.download_video(video_url)
-        video_processor = VideoProcessor(video_path)
-        # Perform desired video processing operations here using the video_processor instance
 
-        # Transcribe the video
-        transcription = transcribe_video(video_path)
-        print(transcription)
+        if video_path is not None:
+            video_processor = VideoProcessor(video_path)
+
+            # Perform desired video processing operations here using the video_processor instance
+
+            # Transcribe the video
+            transcription = transcribe_video(video_path)
+            print(transcription)
+        else:
+            print("Error: Video download failed.")
+
+app = QApplication(sys.argv)
+gui = VideoProcessorGUI()
+gui.show()
+sys.exit(app.exec_())

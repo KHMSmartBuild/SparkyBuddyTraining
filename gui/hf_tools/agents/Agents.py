@@ -1,8 +1,10 @@
 import openai
 import os
+import dotenv
 
-# Replace with your OpenAI API key
-openai.api_key = "your-api-key"
+dotenv.load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 
 # Define your agents and their roles
 agents = {
@@ -24,13 +26,13 @@ def generate_response(prompt):
     Returns:
         str: The generated response text.
     """
-    response = openai.Completion.create(
-        engine="davinci-codex",
+    response = openai.ChatCompletion.create(
+        engine="gpt4",
         prompt=prompt,
-        max_tokens=100,
+        max_tokens=1000,
         n=1,
         stop=None,
-        temperature=0.5,
+        temperature=0.3,
     )
     return response.choices[0].text.strip()
 

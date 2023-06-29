@@ -2,10 +2,10 @@ import time
 
 from openai.error import RateLimitError
 
-from autogpt import token_counter
-from autogpt.config import Config
-from autogpt.llm_utils import create_chat_completion
-from autogpt.logs import logger
+from agents.Tools import token_counter
+from agents.Tools.config import Config
+from agents.Tools.llm_utils import create_chat_completion
+from agents.Tools.logs import logger
 
 cfg = Config()
 

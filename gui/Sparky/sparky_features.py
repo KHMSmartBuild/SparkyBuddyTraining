@@ -1,10 +1,16 @@
 # Script name : sparky_features.py
 # location = gui\Sparky\sparky_features.py
 # accessable from Libraries = yes
-
-from Sparky_commands import *
+# Author: KHM Smartbuild
+import sys
+print(sys.path)
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+features_dir = os.path.join(parent_dir, 'settings', 'features')
+sys.path.insert(0, parent_dir)
+sys.path.insert(0, features_dir)
 from sqlalchemy import create_engine, Table, Column, Integer, String, MetaData
-from Sparky.settings.features.Quoting import Quoting
 
 class Sparky_quoting:
     def __init__(self, username, password, host, port, database):
@@ -101,9 +107,13 @@ class Sparky_quoting:
 
 
 # Class for handling inventory control
-class InventoryControl:
+class Sparky_InventoryControl:
     def __init__(self):
-        pass
+        self.conn = self.engine.connect('company_name.db')
+        self.cursor = self.conn.cursor()
+
+    def __del__(self):
+        self.conn.close()
 
     def add_item(self, item):
         """
@@ -111,8 +121,8 @@ class InventoryControl:
         :param item: Dictionary containing item information.
         :return: None
         """
-        # TODO: Implement the add item logic
-        pass
+        self.cursor.execute("INSERT INTO inventory VALUES (?, ?, ?)", (item['id'], item['name'], item['quantity']))
+        self.conn.commit()
 
     def remove_item(self, item_id):
         """
@@ -120,17 +130,17 @@ class InventoryControl:
         :param item_id: ID of the item to remove.
         :return: None
         """
-        # TODO: Implement the remove item logic
-        pass
+        self.cursor.execute("DELETE FROM inventory WHERE id=?", (item_id,))
+        self.conn.commit()
 
 # Class for handling payroll
-class Payroll:
+class Sparky_Payroll:
     def __init__(self):
-        self.hourly_rate = 10.0
-        self.salary = 40000.0
-        self.sub_contractor_rate = 20.0
-        self.uk_tax_rate = 0.2
-        self.cis_rate = 0.1
+        self.hourly_rate = 35.0
+        self.salary = 50000.0
+        self.sub_contractor_rate = 60.0
+        self.uk_tax_rate = 0.08
+        self.cis_rate = 0.3
         self.vat_rate = 0.2
 
     def calculate_pay(self, employee_id, hours_worked, is_hourly=False, is_salary=False, is_sub_contractor=False):
@@ -180,7 +190,7 @@ class Payroll:
         """
 
 # Class for handling job scheduling
-class JobScheduling:
+class Sparky_JobScheduling:
     def __init__(self):
         pass
 
@@ -207,7 +217,7 @@ class JobScheduling:
         employee.assign_job(job_info)
 
 # Class for handling customer care
-class CustomerCare:
+class Sparky_CustomerCare:
     def __init__(self):
         pass
 
@@ -231,7 +241,7 @@ class CustomerCare:
         pass
 
 # Class for connecting to IoT devices
-class IoTConnection:
+class Sparky_IoTConnection:
     def __init__(self):
         pass
 
@@ -254,12 +264,7 @@ def disconnect_device(self, device_id):
     pass
 
 # class for handling electrical theory
-    
-class ElectricalTheory:
-    def init(self):
-        pass
-
-
+class Sparky_ElectricalTheory:
     def calculate_power_factor(self, real_power, apparent_power):
         """
         Calculate the power factor based on real power and apparent power.
@@ -267,8 +272,9 @@ class ElectricalTheory:
         :param apparent_power: float representing apparent power (in volt-amperes).
         :return: float representing the power factor.
         """
-        # TODO: Implement the power factor calculation logic
-        pass
+        if apparent_power == 0:
+            return 0
+        return abs(real_power / apparent_power)
 
     def calculate_voltage_drop(self, current, resistance, distance):
         """
@@ -278,8 +284,7 @@ class ElectricalTheory:
         :param distance: float representing distance (in meters).
         :return: float representing the voltage drop (in volts).
         """
-        # TODO: Implement the voltage drop calculation logic
-        pass
+        return current * resistance * distance
 
     def calculate_short_circuit_current(self, voltage, impedance):
         """
@@ -288,15 +293,8 @@ class ElectricalTheory:
         :param impedance: float representing impedance (in ohms).
         :return: float representing the short-circuit current (in amperes).
         """
-        # TODO: Implement the short-circuit current calculation logic
-        pass
-
-
-# These classes now have more fleshed-out functions 
-# with docstrings explaining the purpose of each function 
-# and the input parameters. 
-# The #TODO comments indicate where you need to add the 
-# implementation details specific to your application.
-
+        if impedance != 0:
+            return voltage / impedance
+        return float('inf')
 
 

@@ -24,14 +24,13 @@ behavior = sparky_personality['behavior']
 mannerisms = sparky_personality['mannerisms']
 
 # Create a prompt incorporating Sparky's personality traits
-prompt = f"With a personality that includes the following core traits: {core_traits}, behavior: {behavior}, and mannerisms: {mannerisms}, you are Sparky's training model. You will help me with training Sparky's model."
+prompt = f"With a personality that includes the following core traits: {core_traits}, behavior: {behavior}, and mannerisms: {mannerisms}, you are Sparky Electricians Buddy, your role is to help you with electrical projects. Quoting, guidence on BS7671 and other electrical standards." 
 
 
 # Define Sparky Buddy 3's greeting
 def greet():
     greeting = random.choice(list(sparky_personality["mannerisms"]["regional_accent_examples"].values()))
     return greeting
-
 
 # Define Sparky Buddy 3's response to connecting with devices
 def device_connected():
@@ -44,12 +43,6 @@ def hobby_hint(topic=None):
     if topic and topic in sparky_personality["hobbies"]["hobby_references"]["situations"]:
         hint = random.choice(["Oh, that reminds me of my own interest in {}.", "I'm always looking for ways to incorporate {} into my work.", "Have you considered how {} could benefit your electrical projects?"]).format(topic)
     return hint
-
-
-# Define Sparky Buddy 3's joke
-def tell_joke():
-    joke = "Why did the electrician go to art school? To learn how to wire a frame!"
-    return joke
 
 # Define Sparky Buddy 3's response to illegal or unsafe practices
 def explain_implications():

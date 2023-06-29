@@ -2,7 +2,7 @@
 # location = gui\Sparky_gui.py
 # accessable from Libraries = #TODO implement libraries
 # Author: KHM Smartbuild
-# Purpose: TODO add this purpose
+# Purpose: This script is used to create the GUI for training AI electrician assistant Sparky and the Buddy agents in the system.
 # Created: 10/01/2022
 # Updated: 10/01/2022
 # Copyright: (c) 2022 KHM Smartbuild
@@ -19,9 +19,7 @@ sys.path.insert(0, parent_dir)
 sys.path.insert(0, os.path.join(parent_dir, 'utils'))
 import speech_recognition as sr
 from PyQt5.QtCore import Qt
-from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
-from PyQt5.QtMultimediaWidgets import QVideoWidget
-from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QLabel, QLineEdit, QTextEdit, QPushButton, QTabWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QTextEdit, QPushButton, QTabWidget
 from gui.Sparky.ai_task_management import AITaskManagement
 from gui.Sparky.admin_folders_dialog import AdminFoldersDialog
 from gui.Sparky.image_create import ImageGenerator
@@ -31,7 +29,6 @@ from gui.Sparky.quote_tasks_dialog import QuoteTasksDialog
 from gui.Sparky.schedule_tasks_dialog import ScheduleTasksDialog
 from gui.Sparky.data_cleaning_process import CleaningFunctionWidget
 from gui.Sparky.sparky_chat import SparkyChat
-from gui.Sparky.sparky_features import *
 from gui.utils.Prep.doodle_sketch_pad import DoodleSketchPad
 from gui.utils.Prep.file_management import FileManager
 from gui.utils.Prep.media_tab import MediaTab
@@ -144,7 +141,8 @@ class SparkyGUI(QMainWindow):
         tab_widget.addTab(media_tab, "Media")
         media_tab.add_media(FileManager("path/to/local/file.mp4"))
         media_tab.add_media(VideoProcessorGUI("different/path/to/local/file.mp4"))
-        media_controls = QHBoxLayout()  # Add a separate widget for media controls
+       
+        
         # Notes Tab
         notes_tab = QWidget()
         notes_layout = QVBoxLayout()
@@ -274,18 +272,16 @@ class SparkyGUI(QMainWindow):
 
     def open_data_cleaning_gui(self):
         """
-        Opens a GUI for data cleaning. 
-
-        Parameters:
-        - self: The object itself.
-
-        Returns:
-        - None
+        Creates and shows a dialog window for cleaning data. This function takes no parameters and
+        returns nothing.
         """
         logging.info("open_data_cleaning_gui called")
-        dialog = CleaningFunctionWidget()
-        dialog.exec_()
-                
+        try:
+            self.data_cleaning_window = self.CleaningFunctionWidget()
+            self.data_cleaning_window.setWindowTitle("Data Cleaning")
+        except Exception as e:
+            logging.error(f"An error occurred in open_data_cleaning_gui: {e}")
+        logging.info("open_data_cleaning_gui completed")
     def show_schedule_tasks_dialog(self):
         """
         Creates and shows a dialog window for managing schedule tasks. This function takes no parameters and
@@ -346,16 +342,6 @@ class SparkyGUI(QMainWindow):
         """
         self.image_generator = ImageGenerator()
         self.image_generator.show()
- 
-    def open_image_editor(self):
-        """Open Image Editor
-        Initializes a new instance of the ImageEditor class and shows it to the user.
-
-        :param self: The current object.
-        :return: None.
-        """
-        self.image_editor = ImageEditor()
-        self.image_editor.show()
 
     def connect_to_iot_device(self):
         """Connect to IoT device and open window"""
@@ -365,13 +351,7 @@ class SparkyGUI(QMainWindow):
         self.IoT_device_window.show()
 
     def process_video(self):
-        """
-        Downloads a video from the given URL and processes it using VideoProcessor and VideoProcessorGUI.
-
-        Returns:
-            None
-        """
-        # Get the video URL from the input field
+        """Process video using VideoProcessor class"""
         video_url = self.path_input.text()
         # Download the video and get its path
         video_path = self.download_video(video_url)

@@ -89,7 +89,7 @@ class MediaTab(QWidget):
         try:
             yt = YouTube(url)
             video = yt.streams.get_highest_resolution()
-            video.download("gui\utils\Prep\you_tube")  
+            video.download("gui/utils/Prep/you_tube")  
             print("Video downloaded successfully")
         except Exception as e:
             print(f"Error downloading video: {e}")

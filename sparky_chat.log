@@ -1,0 +1,18 @@
+2023-06-29 11:26:36,619 DEBUG:Debug message
+2023-06-29 11:26:36,621 INFO:Informational message
+2023-06-29 11:26:36,623 WARNING:Warning message
+2023-06-29 11:26:36,624 ERROR:Error message
+2023-06-29 11:26:36,625 CRITICAL:Critical message
+2023-06-29 11:26:37,248 DEBUG:Loaded backend qtagg version 5.15.9.
+2023-06-29 11:30:43,915 DEBUG:Debug message
+2023-06-29 11:30:43,918 INFO:Informational message
+2023-06-29 11:30:43,918 WARNING:Warning message
+2023-06-29 11:30:43,919 ERROR:Error message
+2023-06-29 11:30:43,920 CRITICAL:Critical message
+2023-06-29 11:31:42,807 DEBUG:Loaded backend qtagg version 5.15.9.
+2023-06-29 11:47:47,318 DEBUG:Debug message
+2023-06-29 11:47:47,321 INFO:Informational message
+2023-06-29 11:47:47,321 WARNING:Warning message
+2023-06-29 11:47:47,322 ERROR:Error message
+2023-06-29 11:47:47,322 CRITICAL:Critical message
+2023-06-29 11:47:52,756 DEBUG:Loaded backend qtagg version 5.15.9.

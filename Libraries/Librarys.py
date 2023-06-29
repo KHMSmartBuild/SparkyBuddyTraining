@@ -17,12 +17,19 @@ class ModelsLibrary:
         self.other_models = other_models
 
     def train_models(self, data_library):
-        #TODO Code for training models
+        # TODO Code for training models
+        for model in self.neural_networks + self.decision_trees + self.support_vector_machines + self.other_models:
+            model.train(data_library)
 
-        def evaluate_models(self, data_library, evaluation_library):
-            #TODO Code for evaluating models
-
-            # Evaluation library
+    def evaluate_models(self, data_library, evaluation_library):
+        # TODO Code for evaluating models
+        results = {}
+        for model in self.neural_networks + self.decision_trees + self.support_vector_machines + self.other_models:
+            model_results = {}
+            for metric in evaluation_library.accuracy_metrics + evaluation_library.loss_functions + evaluation_library.other_metrics:
+                model_results[metric] = metric.evaluate(model, data_library)
+            results[model] = model_results
+        return results
 
 class EvaluationLibrary:
     def __init__(self, accuracy_metrics, loss_functions, other_metrics):
